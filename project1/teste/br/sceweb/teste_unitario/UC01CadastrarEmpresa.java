@@ -28,9 +28,8 @@ public class UC01CadastrarEmpresa {
 		assertEquals(1, empresaDAO.adiciona(empresa));
 	}
 	
-	@Test
-	public void CT01UC01CadastrarEmpresa_sem_sucesso() {
-		assertEquals(0, empresaDAO.adiciona(empresa));
+	@Test(expected=IllegalArgumentException.class)
+	public void CT02UC01CadastrarEmpresa_com_nome_invalido() {
+		empresa.setNomeDaEmpresa("");
 	}
-
 }
